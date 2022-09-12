@@ -8,6 +8,7 @@
 
 // containers
 #include <string>
+#include <vector>
 
 
 #endif // INCLUDES_H
