@@ -19,6 +19,21 @@ public:
 
     }
 
+public:
+    void setFront(std::string data){
+        _fData = data;
+    }
+    void setBack(std::string data){
+        _bData = data;
+    }
+
+    std::string getFront(){
+        return _fData;
+    }
+    std::string getBack(){
+        return _bData;
+    }
+
 };
 
 #endif // FLASHCARD_H
