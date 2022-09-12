@@ -5,7 +5,7 @@
 
 class MyFCC{
 private:
-    std::vector<Flashcard> _fFront, _fBack;
+    std::vector<Flashcard*> _flashcards;
     bool isFront = true;
 public:
     MyFCC(){
@@ -20,10 +20,9 @@ public:
 
 private:
     void createFlashcard(std::string fData, std::string bData){
-
+        _flashcards.push_back(new Flashcard(fData,bData));
     }
     void checkAnswer(Flashcard fc, std::string data){
-        
     }
 
 };
