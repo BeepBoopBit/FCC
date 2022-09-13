@@ -1,7 +1,8 @@
 #ifndef FC_CONTROLLER_H
 #define FC_CONTROLLER_H
 
-#include "Flashcard.h"
+#include "FC_Folder.h"
+#include <map>
 
 class FC_Controller{
 private:
@@ -11,7 +12,7 @@ private:
     }
 
     FC_Controller(Flashcard *fc){
-        
+
     }
 public:
     FC_Controller *get_instance(Flashcard *fc){
@@ -28,8 +29,39 @@ public:
         return my_instance;
     }
 
-private:
+public:
 
+    void useFolder(std::string name){
+        if(isFolderExists(name)){
+            currFolderName = name;
+        }else{
+            std::cout << "Folder doesn't exists";
+        }
+
+    }
+
+    void addFolder(std::string name){
+        if(isFolderExists(name)){
+            _folders[name] = new FC_Folder();
+            _folders[name]->setName(name);
+        }else{
+            std::cout << "Folder Exists";
+        }
+    }
+
+    void addSet(std::string setName){
+        _folders[currFolderName]->addSet(new FC_Set(setName));
+    }
+
+private:
+    bool isFolderExists(std::string name){
+        return _folders.find(name) != _folders.end();
+    }
+private:
+    // <NameOfFolder, TheData>
+    std::map<std::string, FC_Folder*> _folders;
+
+    std::string currFolderName;
 };
 
 
