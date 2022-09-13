@@ -10,25 +10,13 @@ private:
     FC_Controller(){
 
     }
-
-    FC_Controller(Flashcard *fc){
-
-    }
 public:
-    FC_Controller *get_instance(Flashcard *fc){
-        if(my_instance != nullptr){
-            my_instance = new FC_Controller();
-        }
-        return my_instance;
-    }
-
     FC_Controller *get_instance(){
         if(my_instance != nullptr){
             my_instance = new FC_Controller();
         }
         return my_instance;
     }
-
 public:
 
     void useFolder(std::string name){
@@ -49,10 +37,23 @@ public:
         }
     }
 
+    void useSet(std::string name){
+        if(!currFolderName.empty()){
+            currSetIndex = _folders[currFolderName]->findGetSet(name);
+            currSetName = name;
+        }
+    }
     void addSet(std::string setName){
-        _folders[currFolderName]->addSet(new FC_Set(setName));
+        if(!currFolderName.empty()){
+            _folders[currFolderName]->addSet(new FC_Set(setName));
+        }
     }
 
+    
+
+    void addFlashcard(){
+
+    }
 private:
     bool isFolderExists(std::string name){
         return _folders.find(name) != _folders.end();
@@ -62,6 +63,8 @@ private:
     std::map<std::string, FC_Folder*> _folders;
 
     std::string currFolderName;
+    std::string currSetName;
+    int currSetIndex;
 };
 
 
