@@ -3,6 +3,8 @@
 
 #include "FC_Controller.h"
 
+FC_Controller *FC_Controller::my_instance = 0;
+
 class MyFCC{
 
 public:
