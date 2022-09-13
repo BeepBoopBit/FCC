@@ -1,12 +1,10 @@
 #ifndef FCC_H
 #define FCC_H
 
-#include "Flashcard.h"
+#include "FC_Controller.h"
 
 class MyFCC{
-private:
-    std::vector<Flashcard*> _flashcards;
-    bool isFront = true;
+
 public:
     MyFCC(){
 
@@ -14,9 +12,16 @@ public:
 
 public:
     void InitMenu(){
-
+        std::cout << "BeepBoop Cards\n";
+        std::cout << "[1] Create Folders\n";
+        std::cout << "[2] Use Folders\n";
+        std::cout << "[3] Show Folders\n";
     }
 
+private:
+    void createFolder(){
+
+    }
 
 private:
     void createFlashcard(std::string fData, std::string bData){
@@ -24,6 +29,11 @@ private:
     }
     void checkAnswer(Flashcard fc, std::string data){
     }
+
+private:
+    std::vector<Flashcard*> _flashcards;
+    bool isFront = true;
+    FC_Controller *_fController = _fController->get_instance();
 
 };
 

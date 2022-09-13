@@ -6,13 +6,13 @@
 
 class FC_Controller{
 private:
-    FC_Controller *my_instance = nullptr;
+    static FC_Controller *my_instance;
     FC_Controller(){
 
     }
 public:
-    FC_Controller *get_instance(){
-        if(my_instance != nullptr){
+    static FC_Controller *get_instance(){
+        if(!my_instance){
             my_instance = new FC_Controller();
         }
         return my_instance;
@@ -27,7 +27,6 @@ public:
         }
 
     }
-
     void addFolder(std::string name){
         if(isFolderExists(name)){
             _folders[name] = new FC_Folder();
@@ -48,8 +47,6 @@ public:
             _folders[currFolderName]->addSet(new FC_Set(setName));
         }
     }
-
-    
 
     void addFlashcard(){
 
