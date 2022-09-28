@@ -9,6 +9,12 @@ public: // Constructors
         
     }
 
+public: // setters
+    void addFlashcard(Flashcard* ff){
+        _flashcards.push_back(ff);
+    }
+
+
 private:
     std::vector<Flashcard*> _flashcards;
     std::string _name;
