@@ -13,7 +13,13 @@ public: // setters
     void addFlashcard(Flashcard* ff){
         _flashcards.push_back(ff);
     }
+    void removeFlashcard(int index){
+        // deallocate the memory
+        delete _flashcards[index];
 
+        // delete it in the vector (expensive)
+        _flashcards.erase(_flashcards.begin() + index, _flashcards.begin()+index+1);
+    }
 
 private:
     std::vector<Flashcard*> _flashcards;
