@@ -45,7 +45,10 @@ public: // Initial Functions
 
 public: // Menu Choices
     void showFolders(){
-        
+        int size = _folders.size();
+        for(int i = 0; i < size; ++i){
+            std::cout << '[' << i << ']' << ' ' << _folders[i]->getFolderName() << '\n';
+        }
     }
 
 public: // Factories
