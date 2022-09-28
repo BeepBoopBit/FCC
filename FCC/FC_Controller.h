@@ -43,6 +43,11 @@ public: // Initial Functions
         
     }
 
+public: // Menu Choices
+    void showFolders(){
+        
+    }
+
 public: // Factories
     void createFlashcard(std::string front, std::string back){
         _flashcardBuffer.push_back(new Flashcard(front, back));
@@ -50,6 +55,7 @@ public: // Factories
 
 private:
     std::vector<Flashcard*> _flashcardBuffer;
+    std::vector<FC_Folder*> _folders;
 };
 
 
