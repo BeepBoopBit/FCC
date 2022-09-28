@@ -16,11 +16,37 @@ public: // Singleton
         }
         return my_instance;
     }
+
+public: // Initial Functions
+    void start(){
+        bool inGame = true;
+        while(inGame){
+            // Display the menu
+            std::cout << "BeepBoop Cards\n"
+                    << "[1] Show Folders\n"
+                    << "[2] Create Folder\n"
+                    << "[3] Exit\n"
+                    << "> ";
+
+            // Get the Input
+            std::string userInput;
+            std::getline(std::cin, userInput);
+
+            if(userInput == "1"){
+
+            }else if(userInput == "2"){
+
+            }else if(userInput == "3"){
+
+            }
+        }
+        
+    }
+
 public: // Factories
     void createFlashcard(std::string front, std::string back){
         _flashcardBuffer.push_back(new Flashcard(front, back));
     }
-
 
 private:
     std::vector<Flashcard*> _flashcardBuffer;
