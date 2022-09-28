@@ -13,6 +13,21 @@ public: // Constructors
         _bData = back;
     }
 
+public: // Getters 
+    std::string getFront(){
+        return _fData;
+    }
+    std::string getBack(){
+        return _bData;
+    }
+public: // Setters
+    void setFront(std::string front){
+        _fData = front;
+    }
+    void setBack(std::string back){
+        _bData = back;
+    }
+
 private:
     std::string _fData, _bData; // Front and Back
     bool _isFrontView = true;
