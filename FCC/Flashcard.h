@@ -16,7 +16,6 @@ public: // Constructors
 private:
     std::string _fData, _bData; // Front and Back
     bool _isFrontView = true;
-
 };
 
 #endif // FLASHCARD_H

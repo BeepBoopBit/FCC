@@ -4,12 +4,14 @@
 #include"Flashcard.h"
 
 class FC_Set{
+public: // Constructors
+    FC_Set(){
+        
+    }
+
 private:
     std::vector<Flashcard*> _flashcards;
     std::string _name;
-public:
-    
-
 };
 
 
