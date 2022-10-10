@@ -31,8 +31,6 @@ public: // Initial Functions
             // Get the Input
             std::string userInput;
             std::getline(std::cin, userInput);
-            
-            // I mean, I don't need to think about security... So I'll use it
 
             if(userInput == "1"){
                 system("cls");
@@ -40,8 +38,12 @@ public: // Initial Functions
             }else if(userInput == "2"){
                 createFolder();
             }else if(userInput == "3"){
-
+                inGame = false;
+                break;
             }
+
+            // I mean, I don't need to think about security... So I'll use it
+            system("cls");
         }
         
     }
@@ -59,9 +61,9 @@ public: // Menu Choices
     void createFolder(){
         bool isNotSatisfied = true;
 
+        std::string userInput;
         while(isNotSatisfied){
             std::cout << "Enter the folder name: ";
-            std::string userInput;
             std::getline(std::cin, userInput);
 
             std::cout << "Are you satisfied with \"" << userInput << "\"?\n [YES or No] >";
@@ -72,7 +74,7 @@ public: // Menu Choices
                 break;   
             }
         }
-        system("cls");
+        _folders.push_back(new FC_Folder(userInput));
     }
 
 public: // Factories
