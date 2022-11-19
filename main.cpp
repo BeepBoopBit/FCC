@@ -1,8 +1,8 @@
-#include "FCC/FCC.h"
+#include "FCC/FC_Controller.h"
 
 
 
 int main(){
-    MyFCC _myFCC;
-    _myFCC.InitMenu();
+    FC_Controller* controller = new FC_Controller();
+    controller->start();
 }
