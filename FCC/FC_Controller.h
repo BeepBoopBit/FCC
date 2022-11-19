@@ -2,11 +2,40 @@
 #define FC_CONTROLLER_H
 
 #include "FC_Folder.h"
+#include "FIleReader.h"
 
 class FC_Controller{
 public:
     FC_Controller(){
+        FileReader *_fr = new FileReader();
+        std::vector<std::string> folderName;
+        std::vector<std::vector<std::string>> setName;
+        std::vector<std::vector<std::string>> setData;
+        _fr->saveFileContent(folderName, setName, setData);
+        initFolders(folderName, setName, setData);
+    }
 
+private:
+    void initFolders(std::vector<std::string> &folders,std::vector<std::vector<std::string>> setName,std::vector<std::vector<std::string>> setData){
+        for(int i = 0; i < folders.size(); ++i){
+            // Initialize folder
+            FC_Folder *newFolder = new FC_Folder(folders[i]);
+
+            // Initialize the sets of the folder
+            std::vector<std::string> currentSet = setName[i];
+            for(int j = 0; j < setName.size(); ++j){
+                newFolder->createSet(currentSet[j]);
+            
+                // Initialize the data of the set
+                std::vector<std::string> currentSetData = setData[i];
+                for(int k = 0; k < currentSetData.size()-1; k+=2){
+                    newFolder->getLatestSet()->createCard(currentSetData[k], currentSetData[k+1]);
+                }
+            }
+
+
+            _folders.push_back(newFolder);
+        }
     }
 
 public: // Initial Functions

@@ -36,6 +36,10 @@ public: // Getters
         return _currentSet;
     }
 
+    FC_Set *getLatestSet(){
+        return _sets.back();
+    }
+
 public: // Setters
     void setFolderName(std::string name){
         _folderName = name;
